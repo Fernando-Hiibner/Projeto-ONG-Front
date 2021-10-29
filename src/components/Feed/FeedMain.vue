@@ -4,6 +4,7 @@
       <v-col
         cols="12"
         md="3"
+        class = "mt-0 pt-0 ml-0 pl-0"
       >
         <v-list
           rounded
@@ -13,7 +14,9 @@
             v-model="leftMenuSelectedItem"
             color="primary"
           >
-            <v-list-item>
+            <v-list-item
+              dense
+            >
               <v-list-item-icon>
                 <v-icon>mdi-account-circle</v-icon>
               </v-list-item-icon>
@@ -24,6 +27,7 @@
             <v-list-item
               v-for="(item, i) in leftMenuItems"
               :key="i"
+              dense
             >
               <v-list-item-icon>
                 <v-icon v-text="item.icon"></v-icon>
@@ -41,7 +45,7 @@
       >
         <!-- TODO Pensar em outros placeholders pra por no lugar disso, esses são muito travados -->
         <v-card>
-          <!-- <v-card-title>Placeholder</v-card-title>
+          <v-card-title>Placeholder</v-card-title>
           <v-skeleton-loader
             v-bind="attrs"
             type="article, actions"
@@ -70,19 +74,20 @@
           <v-skeleton-loader
             v-bind="attrs"
             type="list-item-avatar-three-line, image, article"
-          ></v-skeleton-loader> -->
+          ></v-skeleton-loader>
         </v-card>
       </v-col>
 
       <v-col
         cols="12"
         md="3"
+        class = "mt-0 pt-0 mr-0 pr-0"
       >
         <v-card
           elevation="0"
           tile
         >
-          <v-row align="center">
+          <v-row align="center" class="pr-2 pl-2">
             <v-card-title>Contatos</v-card-title>
             <v-spacer></v-spacer>
             <v-tooltip bottom>
@@ -134,14 +139,19 @@
             <v-list-item
               v-for="(item, i) in rightMenuItems"
               :key="i"
+              dense
             >
               <v-list-item-icon>
-                <v-avatar>
-                  <v-img :src=item.avatar></v-img>
-                </v-avatar>
+                <div class = 'd-flex align-center'>
+                  <v-avatar
+                    size="36"
+                  >
+                    <v-img :src=item.avatar></v-img>
+                  </v-avatar>
+                </div>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title v-text="item.text"></v-list-item-title>
+                <v-list-item-title v-text="item.text" class=""></v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list-item-group>
@@ -150,11 +160,9 @@
     </v-row>
   </v-container>
 </template>
-
 <script>
   export default {
-    name: 'Home',
-
+    name: 'FeedMain',
     data: () => ({
       leftMenuSelectedItem: 0,
       leftMenuItems: [

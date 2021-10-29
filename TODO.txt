@@ -9,4 +9,4 @@ Geral
 <!-- TODO O app-bar e os menus laterais tem que ser fixos na tela, igual o facebook onde só o feed desce -->
 <!-- TODO Adicionar o botão flutuante no canto inferior direito -->
 <!-- TODO Tentar adicionar Tooltip nas tabs de navegação superiores -->
-<!-- TODO Fazer a barra de pesquisa ficar mais próxima do icone da casinha -->
+<!-- DONE Fazer a barra de pesquisa ficar mais próxima do icone da casinha -->
