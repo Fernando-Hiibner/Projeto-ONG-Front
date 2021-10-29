@@ -1,8 +1,9 @@
 import Vue from 'vue'
-import App from './App.vue'
-import vuetify from './plugins/vuetify'
-import router from './router'
-import api from './service'
+import App from './App.vue';
+import vuetify from './plugins/vuetify';
+import router from './router';
+import api from './service';
+import state from './state';
 import VueAxios from "vue-axios";
 // import VueCurrencyFilter from "vue-currency-filter";
 // import "./plugins/vuetify-money.js";
@@ -11,6 +12,9 @@ Vue.config.productionTip = false
 
 // Config conexão
 Vue.use(VueAxios, api);
+
+// Configs login
+localStorage.removeItem("token");
 
 // Pega a hora atual
 const moment = require("moment");
@@ -34,6 +38,7 @@ Vue.use(VueCurrencyFilter, {
 new Vue({
   vuetify,
   router,
+  state,
   render: h => h(App)
 }).$mount('#app')
 
