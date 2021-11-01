@@ -3,7 +3,7 @@ import App from './App.vue';
 import vuetify from './plugins/vuetify';
 import router from './router';
 import api from './service';
-import state from './state';
+import store from './store';
 import VueAxios from "vue-axios";
 // import VueCurrencyFilter from "vue-currency-filter";
 // import "./plugins/vuetify-money.js";
@@ -38,7 +38,7 @@ Vue.use(VueCurrencyFilter, {
 new Vue({
   vuetify,
   router,
-  state,
+  store,
   render: h => h(App)
 }).$mount('#app')
 

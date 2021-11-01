@@ -18,6 +18,12 @@ import FeedMain from '../components/Feed/FeedMain.vue'
       FeedMain
     },
 
+    beforeCreate() {
+      if(this.$store.getters.getUser === null) {
+        this.$router.push('/login');
+      }
+    },
+
     data: () => ({
     }),
   }
