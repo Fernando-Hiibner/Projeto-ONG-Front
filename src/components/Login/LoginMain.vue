@@ -235,7 +235,7 @@ export default {
     },
     async entrar() {
       // TODO chamar o fluco de login
-      await this.$router.push('/feed');
+      this.$router.push('/feed');
     }
   },
 };

@@ -1,6 +1,6 @@
 <template>
   <v-app-bar app color="primary" dark dense>
-    <v-container fluid="true">
+    <v-container fluid=true>
       <v-row dense align="center">
         <v-col cols="12" sm="1" md="1">
           <v-btn icon @click="voltarAoFeed()">
@@ -22,7 +22,7 @@ export default {
   name: "PerfilAppBar",
   methods: {
     async voltarAoFeed() {
-      this.$router.push("/feed");
+      this.$router.go(-1);
     },
     async switchTheme() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark
