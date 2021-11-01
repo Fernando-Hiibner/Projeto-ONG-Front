@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Feed from '../views/Feed.vue'
 import Login from '../views/Login.vue'
 
 Vue.use(VueRouter)
@@ -12,9 +12,9 @@ const routes = [
     component: Login
   },
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/feed',
+    name: 'Feed',
+    component: Feed
   },
   {
     path: '/about',

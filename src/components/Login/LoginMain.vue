@@ -7,7 +7,7 @@
             <v-container class="pa-5">
             <v-text-field outlined placeholder="Nome" />
             <v-text-field outlined placeholder="Senha" />
-            <v-btn color="primary" block> Entrar </v-btn>
+            <v-btn color="primary" block @click="entrar()"> Entrar </v-btn>
             <v-layout justify-center align-center class="mt-2">
                 <v-btn plain elevation="0" @click="dialogEsqueceuSenha = true">
                 Esqueceu sua senha?
@@ -225,15 +225,19 @@ export default {
 
   // TODO Adicionar todas as validações de campos
   methods: {
+    mudarSenha() {
+    // TODO Chamar o fluxo de mudar de senha
+    this.isLoading = true;
+    console.log("mudar senha");
+    },
     registrar() {
       // TODO Chamar o fluxo de registro
       this.isLoading = true;
       console.log("Oi");
     },
-    mudarSenha() {
-      // TODO Chamar o fluxo de mudar de senha
-      this.isLoading = true;
-      console.log("mudar senha");
+    entrar() {
+      // TODO chamar o fluco de login
+      this.$router.push('/feed');
     }
   },
 };
