@@ -215,8 +215,6 @@ export default {
     dialogRegistrar: false,
 
     isLoading: false,
-
-    now: null,
   }),
 
   components: {
@@ -235,9 +233,9 @@ export default {
       this.isLoading = true;
       console.log("Oi");
     },
-    entrar() {
+    async entrar() {
       // TODO chamar o fluco de login
-      this.$router.push('/feed');
+      await this.$router.push('/feed');
     }
   },
 };
