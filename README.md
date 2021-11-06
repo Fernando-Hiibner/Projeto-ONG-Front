@@ -1,5 +1,6 @@
 # projeto_ong_front
 
+# Rode essas duas primeiras instruções pra rodar no ambiente de testes
 ## Project setup
 ```
 npm install
