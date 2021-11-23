@@ -92,9 +92,9 @@ export default {
     async switchTheme() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark
     },
-    // abrirPerfil() {
-    //   this.$router.push("/perfil")
-    // }
+    abrirPerfil() {
+      this.$router.push("/perfil")
+    }
   }
 };
 </script>

@@ -6,7 +6,7 @@ Home.vue
 <!-- DONE Aqui tem que ter um header com um subtitulo, e botões pra interagir com essa lista de amigos, ver a necessidade real disso -->
 
 Geral
-<!-- TODO Terminar a tela de login, as funcionalidades dela -->
+<!-- DONE Terminar a tela de login, as funcionalidades dela -->
 <!-- TODO Ver de qual é a do sistema de rotas que ta funcionando estranho -->
 <!-- TODO A tela de perfil -->
 <!-- TODO Quem não esta logado não pode entrar no site pelos links, require Auth -->

@@ -46,7 +46,7 @@
         <!-- TODO Pensar em outros placeholders pra por no lugar disso, esses são muito travados -->
         <v-card>
           <v-card-title>Placeholder</v-card-title>
-          <!-- <v-skeleton-loader
+          <v-skeleton-loader
             v-bind="attrs"
             type="article, actions"
           ></v-skeleton-loader>
@@ -74,7 +74,7 @@
           <v-skeleton-loader
             v-bind="attrs"
             type="list-item-avatar-three-line, image, article"
-          ></v-skeleton-loader> -->
+          ></v-skeleton-loader>
         </v-card>
       </v-col>
 

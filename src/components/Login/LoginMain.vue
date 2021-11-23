@@ -406,7 +406,6 @@ export default {
       }
     },
     async mudarSenha() {
-      // TODO Chamar o fluxo de mudar de senha
       console.log(this.formMudarSenha);
       this.isLoading = true;
       const { data } = await this.axios.post(
@@ -438,11 +437,7 @@ export default {
       this.isLoading = false;
     },
     async registrar() {
-      // TODO Chamar o fluxo de registro
       this.isLoading = true;
-      // console.log(this.formCriarConta)
-      // console.log(this.formCadastroVoluntario)
-      // console.log(this.formCadastroOng)
 
       let userInfo = {}
 
@@ -491,8 +486,6 @@ export default {
       }
     },
     async entrar() {
-      // TODO chamar o fluco de login
-      // TODO Refinar bastante isso pro MVP, usar o store
       this.isLoading = true;
       const { data } = await this.axios.post("login", this.formEntrar);
       if (!data || data.length === 0) {
