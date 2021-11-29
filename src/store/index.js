@@ -1,72 +1,55 @@
-import Vue from "vue";
-import Vuex from "vuex";
-import api from "../service";
+class store {
+    constructor() {
+        this.usuario = null;
+        this.token = null;
 
-Vue.use(Vuex);
+        this.profilePicture = null;
+        this.profileBanner = null;
 
-export default new Vuex.Store({
-  state: {
-    isMobile: false,
-    status: "",
-    token: localStorage.getItem("token") || "",
-    usuario: null,
-  },
-  mutations: {
-    mobileDetect(state, isMobile) {
-      state.isMobile = isMobile;
-    },
-    auth_request(state) {
-      state.status = "loading";
-    },
-    auth_success(state, token) {
-      state.status = "success";
-      state.token = token;
-    },
-    auth_error(state) {
-      state.status = "error";
-    },
-    logout(state) {
-      state.status = "";
-      state.token = "";
-    },
-    setPermissao(state, perm) {
-      state.permissao = perm;
-    },
-  },
-  actions: {
-    login({ commit, state }, user) {
-      return new Promise((resolve, reject) => {
-        commit("auth_request");
-        api
-          .post("/login", user)
-          .then((resp) => {
-            const token = "Bearer " + resp.data.token;
-            const usuario = resp.data.user;
-            state.usuario = usuario;
-            localStorage.setItem("token", token);
-            api.defaults.headers.common["Authorization"] = token;
-            commit("auth_success", token);
-            resolve(resp);
-          })
-          .catch((err) => {
-            commit("auth_error");
+        this.profileInfos = null;
+    }
+    get getUser() {
+        return this.usuario;
+    }
+    set setUser(usuario) {
+        this.usuario = usuario;
+    }
+    get getToken() {
+        return this.token;
+    }
+    set setToken(token) {
+        this.token = token;
+        if(this.token === null) {
             localStorage.removeItem("token");
-            reject(err);
-          });
-      });
-    },
-    logout({ commit }) {
-      return new Promise((resolve) => {
-        commit("logout");
-        localStorage.removeItem("token");
-        delete api.defaults.headers.common["Authorization"];
-        resolve();
-      });
-    },
-  },
-  getters: {
-    isLoggedIn: (state) => !!state.token,
-    authStatus: (state) => state.status,
-    getUser: (state) => state.usuario,
-  },
-});
+        }
+        else {
+            localStorage.setItem("token", token);
+        }
+    }
+    get getProfilePicture() {
+        return this.profilePicture.startsWith("var/www/Projeto ONG/projeto_ong_files/") ? 'http://127.0.0.1:8000/' + this.profilePicture : this.profilePicture;
+    }
+    set setProfilePicture(profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+    get getProfileBanner() {
+        return this.profileBanner.startsWith("var/www/Projeto ONG/projeto_ong_files/") ? 'http://127.0.0.1:8000/' + this.profileBanner : this.profileBanner;
+    }
+    set setProfileBanner(profileBanner) {
+        this.profileBanner = profileBanner;
+    }
+    get getProfileInfos() {
+        return this.profileInfos;
+    }
+    set setProfileInfos(profileInfos) {
+        this.profileInfos = profileInfos;
+    }
+}
+
+const store_plugin = {
+    install(Vue) {
+        Vue.prototype.$store = new store();
+    }
+}
+
+export default store_plugin;

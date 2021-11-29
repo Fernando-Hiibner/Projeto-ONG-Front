@@ -13,12 +13,10 @@ export default ({
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
       this.$vuetify.theme.dark = e.matches ? true : false;
     });
-    if(this.$store.getters.getUser === null) {
-      console.log("Oi");
+    if(this.$store.getUser === null) {
       this.$router.push('/login');
     }
     else {
-      console.log("Baozi");
       this.$router.push('/feed');
     }
   }

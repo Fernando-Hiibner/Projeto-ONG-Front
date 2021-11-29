@@ -38,12 +38,13 @@
             <v-tab href="#tab-1">
               <v-icon>mdi-home</v-icon>
             </v-tab>
-            <v-tab href="#tab-2">
+            <!-- TODO Não sera possivel terminar no MVP -->
+            <!-- <v-tab href="#tab-2">
               <v-icon>mdi-account-group</v-icon>
             </v-tab>
             <v-tab href="#tab-3">
               <v-icon>mdi-earth</v-icon>
-            </v-tab>
+            </v-tab> -->
           </v-tabs>
         </v-col>
         <v-col
@@ -57,9 +58,9 @@
             @click="abrirPerfil()"
           >
             <v-avatar left>
-              <v-icon>mdi-account-circle</v-icon>
+              <v-img :src=profilePicture></v-img>
             </v-avatar>
-            Convidado
+            {{profileInfos.NOME}}
           </v-chip>
         </v-col>
         <v-col
@@ -86,14 +87,19 @@ export default {
   name: 'FeedAppBar',
 
   data: () => ({
-    //
+    profilePicture: null,
+    profileInfos: null,
   }),
+  mounted() {
+    this.profilePicture = this.$store.getProfilePicture;
+    this.profileInfos = this.$store.getProfileInfos;
+  },
   methods: {
     async switchTheme() {
-      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
     },
     abrirPerfil() {
-      this.$router.push("/perfil")
+      this.$router.push("/perfil");
     }
   }
 };

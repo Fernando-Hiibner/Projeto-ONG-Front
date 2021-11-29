@@ -406,7 +406,6 @@ export default {
       }
     },
     async mudarSenha() {
-      console.log(this.formMudarSenha);
       this.isLoading = true;
       const { data } = await this.axios.post(
         "changePassword",
@@ -500,6 +499,17 @@ export default {
         this.isLoading = false;
       } else if (data.token !== null && data.token !== undefined) {
         this.isLoading = false;
+        this.$store.setUser = this.formEntrar.email;
+
+        const { data } = await this.axios.post('getProfilePictureAndBanner', {"email": this.formEntrar.email});
+        let respData = eval(data.data)[0]
+        this.$store.setProfilePicture = respData.IMAGEM_PERFIL;
+        this.$store.setProfileBanner = respData.IMAGEM_BANNER;
+
+        const respType = await this.axios.post("getAccountType", {"email": this.$store.getUser});
+        const respInfos = await this.axios.post("profileInfos", {"email": this.$store.getUser, "tipoConta": respType.data.data});
+        this.$store.setProfileInfos = eval(respInfos.data.data)[0];
+
         this.$router.push("/feed");
       } else {
         this.snackbar = true;
